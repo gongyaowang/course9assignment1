@@ -1,0 +1,24 @@
+---
+title: "R Markdown and Leaflet Assignment"
+author: "Gongyao Wang"
+date: "February 15, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## I show you the old and new Apple headquarters in the map
+
+```{r, echo=FALSE, warning=FALSE}
+library(leaflet)
+
+
+OldApple_map <- leaflet() %>% addTiles() %>% addRectangles(color = "red", lat1 = 37.33382, lng1 = -122.03218, lat2 = 37.32992, lng2 = -122.02788, label = "Apple Old Headquarter located at 1 Infinite Loop in Cupertino, California, United States")
+
+NewApple_map <- OldApple_map %>% addTiles() %>% 
+    addCircles(color = "blue", weight = 3, lat =37.3348066, lng = -122.0091149, radius = 300, popup = "Apple New Spaceship Headquarter located at 1 Apple Park Way in Cupertino, California, United States")
+
+NewApple_map
+```
